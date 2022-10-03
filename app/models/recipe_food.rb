@@ -1,3 +1,2 @@
 class RecipeFood < ApplicationRecord
- 
 end
