@@ -25,7 +25,7 @@ development:
   <<: *default
   database: Recipe_app_development
   username: postgres
-  password: chemistry
+  password: postgres
   host: localhost
   port: 5432
 
@@ -63,7 +63,7 @@ test:
   <<: *default
   database: Recipe_app_test
   username: postgres
-  password: chemistry
+  password: postgres
   host: ''
   port: 5432
 
