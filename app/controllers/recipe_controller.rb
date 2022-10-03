@@ -1,4 +1,4 @@
-class RecipeController < ApplicationController
+class RecipesController < ApplicationController
   def def(_new)
     @recipe = Recipe.new
   end
