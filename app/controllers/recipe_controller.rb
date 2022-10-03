@@ -25,5 +25,4 @@ class RecipeController < ApplicationController
     recipe = params.require(:recipe).permit(:name, :description, :preparation_time, :cooking_time, :public, :user_id)
     recipe.user_id = current_user
   end
-
 end
