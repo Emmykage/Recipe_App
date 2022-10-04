@@ -1,23 +1,32 @@
 class RecipesController < ApplicationController
-  def def(_new)
-    @recipe = Recipe.new
+  def index
+    @recipes = current_user.recipes.all
   end
 
   def create
     @user = current_user
     @recipe = @user.recipes.new(recipe_params)
     if @recipe.save
-      redirect_to @recipe
+      redirect_to recipes_path
     else
-      render 'new'
+      redirect_to new_recipe_path
     end
   end
 
-  def delete
+  def show
     @recipe = Recipe.find(params[:id])
-    @recipe.destroy
+  end
 
+  def destroy
+    @recipe = current_user.recipes.find(params[:id])
+    @recipe.destroy
     redirect_to recipes_path
+  end
+
+  def toggle_public
+    @recipe = Recipe.find_by_id(params[:id])
+    @recipe.public = !@recipe.public
+    redirect_to recipes_path(@recipe.id)
   end
 
   private
