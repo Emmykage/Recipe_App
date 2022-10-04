@@ -1,6 +1,11 @@
 class InventoriesController < ApplicationController
   def index
+    @user = current_user
     @inventories = Inventory.all
+  end
+
+  def new
+    @inventory = Inventory.new
   end
 
   def create
@@ -31,6 +36,6 @@ class InventoriesController < ApplicationController
   private
 
   def inventory_params
-    params.require(:data).permit(:name, :user_id)
+    params.require(:data).permit(:name)
   end
 end

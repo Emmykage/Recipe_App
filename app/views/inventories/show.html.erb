@@ -1,2 +1,26 @@
 <h1>Inventories#show</h1>
-<p>Find me in app/views/inventories/show.html.erb</p>
+
+<div class="inventories" id="<%= dom_id inventory %>">
+  <h2 class='inventory-name'><%= current_user.inventory.name %></h2>
+  <hr>
+  <table class='food-table'>
+          <thead>
+            <tr>
+              <th>Food</th>
+              <th>Quantity</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @inventory.each do |inventory| %>
+              <tr>
+                <td><%= inventory.food.name %></td>
+                <td><%= inventory.quantiry %> <%=inventory.food.measurement_unit%></td>
+                <td><%= button_to "Remove", @inventory, method: :delete %></td>
+              </tr>
+            <% end %>    
+          </tbody>
+    </table>
+</div>
+
+<%= link_to "Back to inventories", inventories_path %>

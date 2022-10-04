@@ -1,2 +1,12 @@
-<h1>Inventories#index</h1>
-<p>Find me in app/views/inventories/index.html.erb</p>
+<h1>Inventories</h1>
+
+<div id="inventories">
+  <% @user.inventories.each do |inventory| %>
+    <h2><%= inventory.name %></h2>
+    <p>
+      <%= link_to "Show this inventory", inventory %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New inventory", new_inventory_path %>
