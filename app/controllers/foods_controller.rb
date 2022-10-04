@@ -12,14 +12,14 @@ class FoodsController < ApplicationController
     @user = current_user
     @food = Food.new(params.require(:food).permit(:name, :measurement_unit, :price))
     respond_to do |format|
-      format.html do
-        if @food.save
-          flash[:success] = 'food has been successfully save'
-          redirect_to foods_path
-        else
-          flash.now[:error] = 'failed to save'
-          render :new, locals: { food: }
-        end
+      if @food.save
+        format.html { redirect_to food_path, notice: 'food has been successfully save' }
+        format.json { render :show, status: :created, location: @food }
+
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @food.errors, status: :unprocessable_entity }
+
       end
     end
   end
@@ -28,7 +28,7 @@ class FoodsController < ApplicationController
     @food.destroy
 
     respond_to do |format|
-      format.html { redirect_to foods_path, notice: 'foor was successfully deleted' }
+      format.html { redirect_to food_path, notice: 'foor was successfully deleted' }
       format.json { head :no_content }
     end
   end
