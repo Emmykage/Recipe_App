@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root "foods#index"
   resources :users, only: [:index ]
   resources :foods, only: [:index, :new, :create]
-  resources :inventories, only: [:index, :show, :create]
+  resources :inventories, only: [:index, :show, :create, :new]
   resources :recipes, except: :update do
       resources :recipe_foods, only: [:create, :destroy, :edit, :new, :update]
   end

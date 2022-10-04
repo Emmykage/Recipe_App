@@ -1,7 +1,7 @@
 <h1>Inventories#show</h1>
 
-<div class="inventories" id="<%= dom_id inventory %>">
-  <h2 class='inventory-name'><%= current_user.inventory.name %></h2>
+<div class="inventories">
+  <h2 class='inventory-name'></h2>
   <hr>
   <table class='food-table'>
           <thead>
@@ -18,7 +18,7 @@
                 <td><%= inventory.quantiry %> <%=inventory.food.measurement_unit%></td>
                 <td><%= button_to "Remove", @inventory, method: :delete %></td>
               </tr>
-            <% end %>    
+            <% end %>
           </tbody>
     </table>
 </div>
