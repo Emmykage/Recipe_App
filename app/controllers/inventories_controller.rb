@@ -1,6 +1,11 @@
 class InventoriesController < ApplicationController
   def index
+    @user = current_user
     @inventories = Inventory.all
+  end
+
+  def new
+    @inventory = Inventory.new
   end
 
   def create
