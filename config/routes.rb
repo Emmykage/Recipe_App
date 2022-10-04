@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 resources :users, only: [:index ]
 resources :foods, only: [:index, :new, :create]
 resources :inventories, only: [:index, :show, :create]
+resources :recipes, except: :update do
+    resources :recipe_foods, only: [:create, :destroy, :edit, :new, :update]
   # Defines the root path route ("/")
   # root "articles#index"
 end
