@@ -1,0 +1,22 @@
+<h1>New food</h1>
+
+<%= form_with model: @food, url: food_path, method: :post, local: true, scope: :post do |f| %>
+
+  <div>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :measurement_unit %><br>
+    <%= f.text_field :text %>
+  </div>
+
+  <div>
+    <%= f.label :price %><br>
+    <%= f.text_field :text %>
+  </div>
+
+  <%= f.submit "Create Post" %>
+
+<% end %>
