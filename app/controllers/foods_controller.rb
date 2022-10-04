@@ -25,10 +25,11 @@ class FoodsController < ApplicationController
   end
 
   def destroy
+    @food = Food.find(params[:id])
     @food.destroy
 
     respond_to do |format|
-      format.html { redirect_to food_path, notice: 'foor was successfully deleted' }
+      format.html { redirect_to foods_path, notice: 'foor was successfully deleted' }
       format.json { head :no_content }
     end
   end

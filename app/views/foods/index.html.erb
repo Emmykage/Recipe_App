@@ -1,5 +1,5 @@
- <% button_to "text", new_food_path %>
- 
+<% button_to "text", new_food_path %>
+
  <table>
   <thead>
     <th>Food</th>
@@ -9,13 +9,13 @@
 
   </thead>
   <%  @foods.each do| food | %>
- 
+
 
   <tr>
-    <td><% food.name %></td>
-    <td><% food.measurement_unit %></td>
-    <td><% food.price %></td>
-    <td><% link_to "Delete", food_path method: :delete %>
+    <td><%= food.name %></td>
+    <td><%= food.measurement_unit %></td>
+    <td><%= food.price %></td>
+    <td><%= button_to "Delete", food_path(food.id), method: :delete %></td>
   </tr>
   <% end %>
-</table> 
+</table>
