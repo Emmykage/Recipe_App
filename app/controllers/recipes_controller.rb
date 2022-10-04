@@ -1,0 +1,37 @@
+class RecipesController < ApplicationController
+  def index
+    @recipes = current_user.recipes.all
+  end
+
+  def create
+    @user = current_user
+    @recipe = @user.recipes.new(recipe_params)
+    if @recipe.save
+      redirect_to recipes_path
+    else
+      redirect_to new_recipe_path
+    end
+  end
+
+  def show
+    @recipe = Recipe.find(params[:id])
+  end
+
+  def destroy
+    @recipe = current_user.recipes.find(params[:id])
+    @recipe.destroy
+    redirect_to recipes_path
+  end
+
+  def toggle_public
+    @recipe = Recipe.find_by_id(params[:id])
+    @recipe.public = !@recipe.public
+    redirect_to recipes_path(@recipe.id)
+  end
+
+  private
+
+  def recipe_params
+    params.require(:recipe).permit(:name, :description, :preparation_time, :cooking_time, :public)
+  end
+end
