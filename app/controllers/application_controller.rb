@@ -13,4 +13,8 @@ class ApplicationController < ActionController::Base
       u.permit(:name, :surname, :email, :password, :current_password)
     end
   end
+
+  def user_foods
+    current_user.inventories.first.inventory_foods.first.foods
+  end
 end

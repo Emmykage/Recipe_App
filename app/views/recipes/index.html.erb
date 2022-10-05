@@ -2,6 +2,9 @@
   <%= link_to "Create new recipe", "/recipes/new" %>
 </div>
 <div class="recipes_container">
+<% if @recipes.empty? %>
+<h2> Please create a recipe </h1>
+<% else %>
   <%@recipes.each do |recipe|%>
     <div class="recipe_container">
       <div class="title_container">
@@ -17,5 +20,6 @@
       </div>
     </div>
   <%end%>
+  <% end %>
   <p></p>
 </div>
