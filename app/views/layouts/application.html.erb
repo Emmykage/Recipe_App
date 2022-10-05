@@ -7,13 +7,24 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "style", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
+  <div class="container">
 
    <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    <% if user_signed_in? %>
+    <div class="intruct">
+      <%= button_to 'Log out', destroy_user_session_path, { method: :delete, data: { turbo: false}} %>
+    </div>
+    <% else %>
+    <a href='users/sign_in'> Singn in </a>
+
+    <% end %>
     <%= yield %>
+    <div>
   </body>
 </html>

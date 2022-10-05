@@ -13,7 +13,7 @@ class FoodsController < ApplicationController
     @food = Food.new(params.require(:food).permit(:name, :measurement_unit, :price))
     respond_to do |format|
       if @food.save
-        format.html { redirect_to food_path, notice: 'food has been successfully save' }
+        format.html { redirect_to foods_path, notice: 'food has been successfully save' }
         format.json { render :show, status: :created, location: @food }
 
       else
