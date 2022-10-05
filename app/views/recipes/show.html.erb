@@ -1,24 +1,25 @@
 <h1 class="title"><%= @recipe.name %></h1>
 <div class="times_container">
   <div class="times">
-    <p>Preparation time: <%@recipe.preparation_time%></p>
-    <p>Cooking time: <%@recipe.cooking_time%></p>
+    <p>Preparation time: <%= @recipe.preparation_time%></p>
+    <p>Cooking time: <%= @recipe.cooking_time%></p>
   </div>
   <div class="toggle">
     <% if @recipe.public %>
-      <%= button_to "Private", toggle_public_path(@recipe.id), method: :patch%>
+      <label for="check1">Public</label>
     <% else %>
-      <%= button_to "Public", toggle_public_path(@recipe.id), method: :patch %>
-    <% end %>
+      <label for="check2">Private</label>
+    <% end %> 
   </div>
 </div>
 <div class="description">
   <p><%= @recipe.description %></p>
 </div>
 <div class="buttons">
-  <%= link_to "Generate shopping list", shopping_list_path(recipe_id: params[:id]), method: :get, class:"generate" %>
+  <%# <%= link_to "Generate shopping list", shopping_list_path(recipe_id: params[:id]), method: :get, class:"generate" %>
   <%= link_to "Add Ingredient", recipe_path(@recipe), class:"add_ingredient" %>
 </div>
+<hr>
 <div class="table_container">
   <table class="table">
     <thead>
