@@ -24,6 +24,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_04_203717) do
 
   create_table "inventories", force: :cascade do |t|
     t.string "name"
+    t.text "description"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -52,8 +53,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_04_203717) do
 
   create_table "recipes", force: :cascade do |t|
     t.string "name"
-    t.time "preparation_time"
-    t.time "cooking_time"
+    t.string "preparation_time"
+    t.string "cooking_time"
     t.text "description"
     t.boolean "public"
     t.bigint "user_id", null: false
