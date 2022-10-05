@@ -17,21 +17,24 @@
 </div>
 <div class="buttons">
   <%# <%= link_to "Generate shopping list", shopping_list_path(recipe_id: params[:id]), method: :get, class:"generate" %>
-  <%= link_to "Add Ingredient", recipe_path(@recipe), class:"add_ingredient" %>
+  <%= link_to "Add Ingredient", new_recipe_recipe_food_path(@recipe), class:"add_ingredient" %>
 </div>
 <hr>
-<div class="table_container">
-  <table class="table">
+<div class="food-container">
+  <table class="food-table">
     <thead>
       <tr >
-        <th class="col">Food</th>
-        <th class="col">Quantity</th>
-        <th class="col">Value</th>
-        <th class="col">Actions</th>
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Value</th>
+        <th>Actions</th>
       </tr>
     </thead>
-    <tbody>
-
+   
+      <% if @recipe.recipe_foods.empty? %>
+      <h2> Add ingredients </h2>
+      <% else %>
+       <tbody>
     <% @recipe.recipe_foods.includes([:food]).each do |food| %>
       <tr >
         <td><%= food.food.name %></td>
@@ -39,13 +42,18 @@
         <td><%= "#{food.food.price}" %></td>
 
         <td class="buttons">
-          <%= link_to "Modify", edit_recipe_recipe_food_path(@recipe, food), class:"modify"  %>
+          <%
+=begin%>
+ <%= link_to "Modify", edit_recipe_recipe_food_path(@recipe, food), class:"modify"  %> 
+<%
+=end%>
           <%= button_to "Delete", recipe_recipe_food_path(@recipe, food), method: :delete , class:"delete" %>
         </td>
 
       </tr>
       <% end %>
     </tbody>
+    <% end %>
   </table>
 </div>
 

@@ -59,3 +59,25 @@
 .form-container form {
   width: 100%;
 }
+
+.flex {
+  display: flex;
+
+  /* background-color: yellow; */
+  gap: 2%;
+}
+
+.field {
+  margin: 18px 0;
+}
+
+.flex .field {
+  flex: 1;
+}
+
+.form-group {
+  width: 80%;
+  margin: auto;
+
+  /* background-color: #04aa6d; */
+}

@@ -1,19 +1,30 @@
 class RecipeFoodsController < ApplicationController
   def create
+    @user = current_user
+    # @recipe = RecipeFood.where(recipe_id: params[:recipe_id])
+    @recipe = Recipe.find(params[:recipe_id])
+
+    # @recipe = @user.recipes.new(recipe_params);
+    @recipe_food = RecipeFood.new(params.require(:recipe_food).permit(:quantity, :recipe_id, :food_id))
+    @recipe_food.recipe_id = @recipe.id
+    # @recipe_food = RecipeFood.new(recipe_food_params);
     @recipe_food.save ? flash[:notice] = 'RecipeFood saved successfully' : flash[:alert] = 'RecipeFood not saved'
     redirect_to recipe_path(params[:recipe_id])
   end
 
   def destroy
-    @recipe_food.recipe_id = nil
-    @recipe_food.food_id = nil
+    @recipe = Recipe.find(params[:recipe_id])
+    @recipe_food = RecipeFood.find(params[:id])
     @recipe_food.destroy
-
-    redirect_to request.path
+    respond_to do |format|
+      format.html { redirect_to recipe_path(@recipe.id), notice: 'foor was successfully deleted' }
+      format.json { head :no_content }
+    end
   end
 
   def new
-    @foods = Food.where(user: current_user)
+    @user = current_user
+    @foods = Food.all
   end
 
   def edit
