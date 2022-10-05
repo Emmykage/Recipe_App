@@ -8,8 +8,7 @@
     <thead>
       <tr >
         <th class="col">Food</th>
-        <th class="col">Measurement unit</th>
-        <th class="col">Unit price</th>
+        <th class="col">Quantity</th>
         <th class="col">Actions</th>
       </tr>
     </thead>
@@ -19,12 +18,9 @@
       <tr >
         <td><%= food.food.name %></td>
         <td><%= "#{food.food.measurement_unit}" %></td>
-        <td><%= "#{food.food.price}" %></td>
-
         <td class="buttons">
           <%= button_to "Remove", recipe_recipe_food_path(@recipe, food), method: :delete , class:"delete" %>
         </td>
-
       </tr>
       <% end %>
     </tbody>
