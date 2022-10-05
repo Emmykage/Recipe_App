@@ -9,7 +9,7 @@
           <%=link_to inventories_path(inventory.id), :class => 'title_anchor' do%><%= inventory.name%><%end%>
         </h2>
 
-          <%= button_to 'Remove', inventories_path(inventory.id), method: :delete, class: "delete_btn" %>
+          <%= button_to 'Remove', inventory_path(inventory.id), method: :delete, class: "delete_btn" %>
 
       </div>
       <div class="description_container">
