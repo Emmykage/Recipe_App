@@ -1,0 +1,61 @@
+.food-container {
+  width: 80%;
+  margin: auto;
+
+  /* border: 1px solid solid; */
+
+  /* background-color: greenyellow; */
+}
+
+.food-container table {
+  /* width: 600px; */
+  text-align: center;
+  margin: 50px auto;
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid black;
+}
+
+.food-table td,
+.food-table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.food-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.food-table tr:hover {
+  background-color: #ddd;
+}
+
+.food-table th {
+  padding: 12px 6px;
+
+  /* text-align: left; */
+  background-color: #04aa6d;
+}
+
+.food-table button {
+  background: transparent;
+  border: none;
+}
+
+.btn-div {
+  text-align: right;
+}
+
+.btn {
+  align-self: flex-end;
+  margin-right: 0;
+}
+
+.form-container {
+  width: 800px;
+  margin: auto;
+}
+
+.form-container form {
+  width: 100%;
+}
