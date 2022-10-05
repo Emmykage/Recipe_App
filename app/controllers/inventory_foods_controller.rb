@@ -4,7 +4,12 @@ class InventoryFoodsController < ApplicationController
     @inventory = Inventory.find(params[:inventory_id])
     @inventory_food = InventoryFood.new(params.require(:inventory_food).permit(:quantity, :inventory_id, :food_id))
     @inventory_food.inventory_id = @inventory.id
-    @inventory_food.save ? flash[:notice] = 'Inventory food saved successfully' : flash[:alert] = 'Inventory food not saved'
+    if @inventory_food.save
+      flash[:notice] =
+        'Inventory food saved successfully'
+    else
+      flash[:alert] = 'Inventory food not saved'
+    end
     redirect_to inventory_path(params[:inventory_id])
   end
 
