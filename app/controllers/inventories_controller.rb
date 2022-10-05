@@ -1,41 +1,31 @@
 class InventoriesController < ApplicationController
   def index
-    @user = current_user
-    @inventories = Inventory.all
-  end
-
-  def new
-    @inventory = Inventory.new
+    @inventories = current_user.inventories.all
   end
 
   def create
     @user = current_user
-    new_inventory = @user.inventories.new(inventory_params)
-    respond_to do |format|
-      format.html do
-        if new_inventory.save
-          redirect_to inventories_path
-        else
-          render :new
-        end
-      end
+    @inventory = @user.inventories.new(inventory_params)
+    if @inventory.save
+      redirect_to inventories_path
+    else
+      redirect_to new_inventory_path
     end
   end
 
   def destroy
-    inventory = Inventory.find(params[:id])
-    inventory.destroy
+    @inventory = current_user.inventories.find(params[:id])
+    @inventory.destroy
     redirect_to inventories_path
   end
 
   def show
     @inventory = Inventory.find(params[:id])
-    @inventory_foods = @inventory.inventory_foods
   end
 
   private
 
   def inventory_params
-    params.require(:data).permit(:name)
+    params.require(:inventory).permit(:name, :description)
   end
 end
