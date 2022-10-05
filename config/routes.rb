@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  # get 'publics/index'
   # get 'inventories/index'
   # get 'inventories/show'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index ]
   resources :foods, only: [:index, :new, :create, :destroy]
   resources :inventories, only: [:index, :show, :new, :create, :destroy]
+  resources :publics, only: [:index ]
   resources :recipes, except: :update do
       resources :recipe_foods, only: [:create, :destroy, :edit, :new, :update]
   end

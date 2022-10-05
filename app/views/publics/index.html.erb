@@ -1,0 +1,16 @@
+<div class="publics">
+    <ul class="publics-list">
+        <% @publics.each do |public|%>
+            <li>
+                <div class="label">
+                    <h4><%= public.name%></h4>
+                    <p> By: <%= current_user.email %></p>
+                </div>
+                <div class="details">
+                    <p> Total food items : <%= public.recipe_foods.length %></p>
+                    <p> Total price: --</p>
+                </div>
+            </li>
+        <%end%>
+    <ul>
+</div>
