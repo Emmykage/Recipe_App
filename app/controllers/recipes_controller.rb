@@ -23,12 +23,6 @@ class RecipesController < ApplicationController
     redirect_to recipes_path
   end
 
-  def toggle_public
-    @recipe = Recipe.find_by_id(params[:id])
-    @recipe.public = !@recipe.public
-    redirect_to recipes_path(@recipe.id)
-  end
-
   private
 
   def recipe_params

@@ -1,12 +1,21 @@
-<h1>Inventories</h1>
-
-<div id="inventories">
-  <% @user.inventories.each do |inventory| %>
-    <h2><%= inventory.name %></h2>
-    <p>
-      <%= link_to "Show this inventory", inventory %>
-    </p>
-  <% end %>
+<div class="new_recipe">
+  <%= link_to "Create Inventory", "/inventories/new" %>
 </div>
+<div class="recipes_container">
+  <%@inventories.each do |inventory|%>
+    <div class="recipe_container">
+      <div class="title_container">
+        <h2>
+          <%=link_to inventory_path(inventory.id), :class => 'title_anchor' do%><%= inventory.name%><%end%>
+        </h2>
 
-<%= link_to "New inventory", new_inventory_path %>
+          <%= button_to 'Remove', inventory_path(inventory.id), method: :delete, class: "delete_btn" %>
+
+      </div>
+      <div class="description_container">
+        <p><%= inventory.description %></p>
+      </div>
+    </div>
+  <%end%>
+  <p></p>
+</div>
