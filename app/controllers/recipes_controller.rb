@@ -19,7 +19,8 @@ class RecipesController < ApplicationController
   end
 
   def shop_lists
-    
+    @inventory = Inventory.find(params[:inventory])
+    @inventories = @inventory.inventory_foods
   end
 
   def destroy

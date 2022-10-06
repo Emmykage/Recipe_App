@@ -1,2 +1,8 @@
 <h1>hey</h1>
 
+<% @inventories.each do |inventory|%>
+
+<span><%= inventory.food.name%></span>
+<span><%= inventory.quantity%></span>
+
+<% end %>
