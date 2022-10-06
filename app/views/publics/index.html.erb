@@ -3,12 +3,14 @@
         <% @publics.each do |public|%>
             <li>
                 <div class="label">
-                    <h4><%= public.name%></h4>
+                    <h2><%=link_to recipe_path(public.id), :class => 'title_anchor' do%><%= public.name%><%end%>
+                    </h2>
                     <p> By: <%= current_user.email %></p>
                 </div>
                 <div class="details">
                     <p> Total food items : <%= public.recipe_foods.length %></p>
                     <p> Total price: --</p>
+                    <%= button_to 'Remove', recipe_path(public.id), method: :delete, class: "delete_btn" %>
                 </div>
             </li>
         <%end%>
