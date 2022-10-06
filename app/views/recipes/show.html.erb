@@ -58,15 +58,6 @@
     <% end %>
   </table>
 
-  <%= form_with url: shop_lists_path, local: true do |f| %>
-      <div>
-        
-        <%= f.select :inventory, @inventories.map {|t| [t.name, t.id] }, {}, class: "input-field" %>
-      </div>
-      <div class>
-        <%= f.submit "Generate", class: "generate-btn" %>
-      </div>
-    <% end %>
 </div>
 
 

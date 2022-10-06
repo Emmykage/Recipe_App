@@ -19,7 +19,7 @@ class RecipesController < ApplicationController
   end
 
   def shop_lists
-
+    
   end
 
   def destroy
