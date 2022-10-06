@@ -18,6 +18,10 @@ class RecipesController < ApplicationController
     @inventories = current_user.inventories
   end
 
+  def shop_lists
+
+  end
+
   def destroy
     @recipe = current_user.recipes.find(params[:id])
     @recipe.destroy
