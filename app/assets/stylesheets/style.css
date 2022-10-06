@@ -1,10 +1,16 @@
 .food-container {
   width: 80%;
   margin: auto;
+}
 
-  /* border: 1px solid solid; */
+.recipe-container {
+  /* position: relative; */
 
-  /* background-color: greenyellow; */
+  /* background-color: bisque; */
+}
+
+body {
+  /* position: relative; */
 }
 
 .food-container table {
@@ -71,6 +77,10 @@
   margin: 18px 0;
 }
 
+.popup {
+  text-align: right;
+}
+
 .flex .field {
   flex: 1;
 }
@@ -78,6 +88,75 @@
 .form-group {
   width: 80%;
   margin: auto;
+}
 
-  /* background-color: #04aa6d; */
+.overlay {
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s ease-out;
+}
+
+.overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.overlay-container form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.overlay-container {
+  padding: 27px;
+  position: absolute;
+  height: 80vh;
+  background-color: #fff;
+  width: 800px;
+  max-width: 1000px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.overlay-container h2,
+.overlay-container h3 {
+  margin: 49px 0;
+}
+
+.overlay-container form .generate-btn {
+  padding: 3px 14px;
+}
+
+.overlay-container form > div {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons a {
+  padding: 4px 12px;
+  background-color: rgb(219, 217, 217);
+  border: 1px solid black;
+  text-decoration: none;
+  color: black;
+}
+
+.popup .bx {
+  font-size: 33px;
+  font-weight: 600;
 }

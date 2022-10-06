@@ -1,3 +1,4 @@
+<div class="recipe-container">
 <h1 class="title"><%= @recipe.name %></h1>
 <div class="times_container">
   <div class="times">
@@ -16,8 +17,9 @@
   <p><%= @recipe.description %></p>
 </div>
 <div class="buttons">
-  <%# <%= link_to "Generate shopping list", shopping_list_path(recipe_id: params[:id]), method: :get, class:"generate" %>
-  <%= link_to "Add Ingredient", new_recipe_recipe_food_path(@recipe), class:"add_ingredient" %>
+<button class="open">Generate Shopping List</button>
+
+ <%= link_to "Add Ingredient", new_recipe_recipe_food_path(@recipe), class:"add_ingredient" %>
 </div>
 <hr>
 <div class="food-container">
@@ -55,5 +57,13 @@
     </tbody>
     <% end %>
   </table>
+</div>
+
+
+
+<div class="overlay">
+<%= render "overlay" %>
+</div>
+
 </div>
 
