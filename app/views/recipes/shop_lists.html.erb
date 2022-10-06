@@ -7,7 +7,7 @@
             <span>Recipe: <%= @recipe %> </span>
         </div>
         <div class="flex-div">
-            <span>Total Value of food needed: $ </span>
+            <span>Total Value of food needed: $ <%= @total %></span>
             <span>inventory: <%= link_to @inventory.name %>  <%inventory_path(@inventory.id) %></span>
 
         </div>

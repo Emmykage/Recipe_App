@@ -20,11 +20,13 @@ class RecipesController < ApplicationController
 
   def shop_lists
     @recipe = params[:recipe]
-
+    @recipesid = Recipe.all.where(name: @recipe).ids.join
+    @recipe_item = Recipe.find_by(id: @recipesid)
     @inventory = Inventory.find(params[:inventory])
     @inventories = @inventory.inventory_foods
-
-    @total = @inventories.inventory_foods
+    @totalrecipe = @recipe_item.recipe_foods.map { |recipe| recipe.food.price * recipe.quantity }.sum
+    @totalinventory = @inventories.map { |inventory| inventory.food.price * inventory.quantity }.sum
+    @total = @totalrecipe - @totalinventory
     
   end
 
