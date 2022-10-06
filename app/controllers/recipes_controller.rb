@@ -19,6 +19,8 @@ class RecipesController < ApplicationController
   end
 
   def shop_lists
+    @recipe = params[:recipe]
+
     @inventory = Inventory.find(params[:inventory])
     @inventories = @inventory.inventory_foods
   end
