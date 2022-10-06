@@ -8,4 +8,11 @@ class User < ApplicationRecord
 
   has_many :recipes
   has_many :inventories
+
+  
+  ROLES = %i[admin default].freeze
+
+  def is?(requested_role)
+    role == requested_role
+  end
 end
