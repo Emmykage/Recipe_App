@@ -1,28 +1,17 @@
-<h1>hey</h1>
-
-<% @inventories.each do |inventory|%>
-
-<span><%= inventory.food.name%></span>
-<span><%= inventory.quantity%></span>
-
-<% end %>
-
-
-
 <div class="food-container">
 
  <h1> Shopping List</h1>
-  <div> 
-    <div>
-        <span>Amount of food to buy: <%= @inventories.length %> </span>
-        <span>Recipe: <%= @recipe %> </span>
-    </div>
-    <div>
-        <span>Total Value of food needed: $ </span>
-        <span>inventory: <%= link_to @inventory.name %> </span>
+    <div> 
+        <div class="flex-div">
+            <span>Amount of food to buy: <%= @inventories.length %> </span>
+            <span>Recipe: <%= @recipe %> </span>
+        </div>
+        <div class="flex-div">
+            <span>Total Value of food needed: $ </span>
+            <span>inventory: <%= link_to @inventory.name %>  <%inventory_path(@inventory.id) %></span>
 
+        </div>
     </div>
-    
    <table class="food-table">
       <thead>
         <th>Food</th>
@@ -31,14 +20,14 @@
       </thead>
       <tbody>
         <% @inventories.each do |inventory| %>
-    <tr>
-      <td><%= inventory.food.name %></td>
-      <td><%= inventory.quantity %></td>
-      <td><%= inventory.food.price %></td>
-      </tr>
-   <% end %>
-</tbody>
-</table>
+            <tr>
+                <td><%= inventory.food.name %></td>
+                <td><%= inventory.quantity %></td>
+                <td><%= inventory.food.price %></td>
+            </tr>
+        <% end %>
+    </tbody>
+    </table>
   
-  <% end %>
+
 </div>
