@@ -1,0 +1,19 @@
+
+<div class="overlay-container">
+<div class="popup"><i class='close bx bx-x'></i></div>
+
+  <h2>Generate shopping list</h2>
+  <h3> Choose an inventory to use </h3>
+  <div>
+    <%= form_with do |f| %>
+      <div>
+        
+        <%= f.select :inventory, @inventories.map {|t| [t.name, t.id] }, {}, class: "input-field" %>
+      </div>
+      <div class>
+        <%= f.submit "Generate", class: "generate-btn" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
