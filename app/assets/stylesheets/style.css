@@ -3,14 +3,8 @@
   margin: auto;
 }
 
-.recipe-container {
-  /* position: relative; */
-
-  /* background-color: bisque; */
-}
-
-body {
-  /* position: relative; */
+.food-container h1 {
+  text-align: center;
 }
 
 .food-container table {
@@ -159,4 +153,15 @@ body {
 .popup .bx {
   font-size: 33px;
   font-weight: 600;
+}
+
+.flex-div {
+  display: flex;
+  justify-content: space-between;
+  margin: 14px 0;
+}
+
+.flex-div span {
+  font-weight: 600;
+  font-size: 23px;
 }
