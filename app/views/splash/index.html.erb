@@ -1,0 +1,10 @@
+<div class="barner-container">
+    <div class="barner">
+        <h1>Welcome to <%= image_tag("coin.png",  width: '80px') %> CoinApp</h1>
+        <h4><%= link_to "Click to sign in", new_user_session_path %></h4>
+        <div class="col-sign">
+            <%= link_to "Sign in", new_user_session_path %><br>
+            <%= link_to "Sign up ", new_user_registration_path%>
+        </div>
+    </div>
+</div>

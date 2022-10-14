@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+.barner-container a {
+  font-size: 23px;
+  text-decoration: none;
+  color: aliceblue;
+}
+
+.barner-container h1 {
+  font-size: 89px;
+}
+
+.barner-container {
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(0, 14, 58);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.barner {
+  /* background-color: brown; */
+  text-align: center;
+  height: 70vh;
+  color: aliceblue;
+}
+
+.barner h1,
+.barner h4 {
+  text-align: center;
+  margin-bottom: 125px;
+}
+
+.barner .col-sign {
+  margin: 18px;
+  text-align: center;
+  width: 100%;
+
+  /* background-color: brown; */
+}
+
+.barner .col-sign a {
+  font-size: 23px;
+  text-decoration: underline;
+  color: aliceblue;
+}
+
+@media only screen and (max-width: 700px) {
+  .barner-container h1 {
+    font-size: 69px;
+  }
+
+  .barner-container img {
+    width: 40px;
+  }
+}

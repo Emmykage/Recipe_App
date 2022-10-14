@@ -1,0 +1,24 @@
+
+<li id="<%= dom_id group %>" class="group-list">
+
+  <div class="img">
+    <%= group.icon %>
+   </div>
+
+  <div class="mid list-mid">
+    <div>
+      <h3><%=link_to group.name, group_purchases_path(group.id) %></h3>
+      <span>20 Apr 2010</span>
+    </div>
+    <div>
+      <span>Total: <%= group.sum_total.sum(:amount) %></span>
+    </div>
+
+    <%
+=begin%>
+ <%=button_to 'Delete', group_path(group.id), method: :delete %> 
+<%
+=end%>
+  </div>
+
+</li>

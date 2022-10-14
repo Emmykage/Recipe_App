@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BudgetApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+  <header>
+    <nav>
+      <div class="logo-div">
+        <a href="/groups"><%= image_tag("coin.png",  class: 'image-icon') %>CoinApp</a>  
+        
+      </div>
+     
+        <% if user_signed_in? %>
+          <ul class="instruct">
+          <i class="fa close fa-xmark">X</i>
+          <i class="fa close fa-xmark"></i>
+            <li><%= link_to 'Home', groups_path %></li>
+            <li><%= button_to "sign out", destroy_user_session_path, { method: :delete, data: { turbo: false}} %></li>
+          </ul>
+          <% else %>
+          <ul class="instruct">
+          <i class="fa close fa-xmark">X</i>
+            <li><%= link_to 'Sign in', new_user_session_path %></li>
+            <li><%= link_to "Sign up", new_user_registration_path %></li>
+          </ul>
+        <%end%>
+        <div>
+        <i class="fa menu fa-bars"></i>
+        
+        </div>
+         <div class="trans"><h1>Transactions</h1></div>
+      </nav> 
+  </header>
+   
+  <div class="container">
+     <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+
+      
+   <div class="sub-contain">
+    <%= yield %>
+    </div>
+  </div>
+   </body>
+</html>

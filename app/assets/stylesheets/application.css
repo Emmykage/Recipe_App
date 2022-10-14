@@ -1,155 +1,404 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
 * {
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+nav {
+  padding-left: 142px;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(0, 14, 58);
+  align-items: center;
+}
+
+nav ul {
+  flex: 1;
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  padding: 6px 12px;
+}
+
+nav .logo-div {
+  flex: 2;
+}
+
+a {
+  text-decoration: none;
+}
+
+nav ul li a {
+  color: white;
+  font-size: 19px;
+}
+
+nav ul li button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 19px;
+}
+
+.menu,
+.close {
+  font-size: 34px;
+  display: none;
+  color: aliceblue;
+}
+
+.logo-div a {
+  font-size: 34px;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  color: orangered;
+}
+
+.image-icon {
+  width: 80px;
 }
 
 .container {
-  width: 80%;
+  width: 100%;
+  max-width: 1400px;
   margin: auto;
+}
+
+.total {
+  text-align: center;
+}
+
+.form-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.form-layout {
+  margin: auto;
+  max-width: 800px;
+  width: 100%;
+}
+
+.btn {
+  padding: 4px 18px;
+  font-weight: 500;
 }
 
 .input-field {
   width: 100%;
-  padding: 3px 22px;
+  padding: 12px;
+  margin-bottom: 12px;
 }
 
-.form-btn {
-  margin-top: 12px;
+.groups {
+  max-width: 1200px;
+  border: 1px solid black;
 }
 
-/* navbar */
+.container a {
+  text-decoration: none;
+}
 
-.navbar {
-  background-color: #f8f8f8;
-  border-color: #e7e7e7;
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.65);
-  -webkit-box-shadow: 0 1px 8px rgba(0, 0, 0, 0.65);
-  -moz-box-shadow: 0 1px 8px rgba(0, 0, 0, 0.65);
+#categories {
+  padding: 0;
+}
+
+.group-list,
+.trans-list {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 6px;
+  gap: 2%;
+  align-items: center;
+  margin: 12px 2px;
+}
+
+.group-list .img {
+  width: 80px;
+  height: 80px;
+  border: 1px solid black;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  width: 100%;
+}
+
+.group-list img {
+  width: 100%;
+}
+
+.list-mid {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 0 20px 0;
+  padding: 0 16px 6px 6px;
+  height: 100%;
+  box-shadow: 1px 2px 3px 1px rgba(0, 0, 0, 0.3);
+
+  /* background-color: beige; */
 }
 
-.navbar_container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 10px;
+.mid {
+  flex: 3;
 }
 
-.navbar_logo > a {
-  font-size: 1.5em;
-  font-weight: bold;
-  color: #555;
-  text-decoration: none;
-  margin: 0 10px;
+.p-mid {
+  width: 100%;
 }
 
-.new_recipe > a {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  font-size: 1.5em;
-  font-weight: bold;
-  color: #551a8b;
-  text-decoration: none;
-  margin: 0 25px;
+.list-mid > div h3 {
+  margin-top: 4px;
+  font-size: 25px;
+  margin-bottom: 17px;
 }
 
-.navbar_links > a {
-  color: #555;
-  text-decoration: none;
-  margin: 0 10px;
+.list-mid > div span {
+  font-size: 22px;
 }
 
-.navbar_logo > a:hover {
-  color: #551a8b;
-}
-
-.navbar_links {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-}
-
-.navbar_links > a:hover {
-  color: #551a8b;
-}
-
-.session {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 10px;
-  gap: 10px;
-}
-
-/* recipes index */
-
-.new_recipe > a:hover {
-  color: #555;
-}
-
-.recipes_container {
-  margin: 20px;
-}
-
-.recipe_container {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 20px;
-  padding: 0 20px;
-  border: solid 2px #551a8b;
-  border-radius: 10px;
-  margin: 20px 0;
-}
-
-.title_anchor {
-  text-decoration: none;
-}
-
-.title_anchor:hover {
-  color: #555;
-}
-
-.delete_btn {
-  background-color: #551a8b;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 5px;
-  margin: 5px;
-}
-
-.delete_btn:hover {
-  background-color: #555;
-}
-
-/* recipes show */
-.title {
-  font-size: 2em;
-  font-weight: bold;
-  margin-bottom: 0.5em;
+.footer-btn {
   text-align: center;
 }
 
-.times_container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-  align-content: center;
-  margin: 0 auto;
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  background-color: #f5f5f5;
+.footer-btn a {
+  font-size: 34px;
 }
 
-.table {
-  width: 100%;
-  max-width: 100%;
-  margin-bottom: 1rem;
-  background-color: transparent;
+.name-div,
+.amount-div {
+  flex: 1;
+  padding: 2rem 0;
+}
+
+.amount-div {
+  text-align: right;
+}
+
+.border {
+  box-shadow: 1px 2px 3px 1px rgba(0, 0, 0, 0.3);
+}
+
+@media only screen and (max-width: 700px) {
+  .total {
+    text-align: right;
+    font-weight: 500;
+    font-size: 24px;
+  }
+
+  .menu {
+    display: block;
+
+    /* margin-right: 15px; */
+  }
+
+  .close {
+    display: block;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  .group-list .img {
+    height: 50px;
+    width: 50px;
+  }
+
+  .mid {
+    /* background-color: aliceblue; */
+    flex: 3;
+    padding: 6px 6px;
+    height: 100%;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.3);
+
+    /* background-color: beige; */
+  }
+
+  .mid h3 {
+    margin: 0 0 12px;
+  }
+
+  nav {
+    padding: 20px 10px 20px 10px;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(47, 106, 169, 255);
+    position: relative;
+  }
+
+  .trans {
+    flex: 3;
+    color: white;
+    text-align: center;
+  }
+
+  nav ul {
+    flex: 1;
+    display: none;
+    list-style: none;
+    position: absolute;
+    padding: 30px 15px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    max-width: 450px;
+    opacity: 0.9;
+    height: 100vh;
+    background-color: rgba(47, 106, 169, 255);
+  }
+
+  nav ul li {
+    padding: 6px 12px;
+    border: 1px solid rgb(219, 219, 219);
+    margin-bottom: 12px;
+  }
+
+  nav .logo-div {
+    flex: 0;
+    display: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  nav ul li a {
+    color: orangered;
+    font-size: 19px;
+    font-weight: 500;
+  }
+
+  nav ul li button {
+    background-color: transparent;
+    border: none;
+    color: orangered;
+    font-size: 19px;
+    font-weight: 500;
+  }
+
+  .logo-div a {
+    font-size: 23px;
+  }
+
+  .image-icon {
+    width: 65px;
+  }
+
+  .form-container {
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  .form-layout {
+    margin: auto;
+    max-width: 800px;
+    width: 100%;
+  }
+
+  .btn {
+    padding: 4px 18px;
+    font-weight: 500;
+  }
+
+  .input-field {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+
+  .group {
+    padding: 0;
+  }
+
+  .group h2 {
+    text-align: center;
+  }
+
+  .group-list,
+  .trans-list {
+    padding: 8px 6px;
+    gap: 2%;
+    margin: 12px 2px;
+  }
+
+  .group-list:hover,
+  .trans-list:hover {
+    background-color: rgb(237, 235, 235);
+  }
+
+  .list-mid {
+    padding: 0 16px 6px 6px;
+    box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0.3);
+  }
+
+  .list-mid > div h3 {
+    margin-top: 0;
+    font-size: 23px;
+    margin-bottom: 10px;
+    color: gray;
+  }
+
+  .list-mid > div span {
+    font-size: 19px;
+    font-weight: 500;
+  }
+
+  .footer-btn {
+    text-align: center;
+  }
+
+  .footer-btn a {
+    font-size: 22px;
+  }
+
+  .name-div,
+  .amount-div {
+    flex: 1;
+    padding: 0.7rem 0;
+  }
+
+  .amount-div {
+    text-align: right;
+  }
+
+  .border {
+    box-shadow: 1px 2px 3px 1px rgba(0, 0, 0, 0.3);
+  }
+
+  .tran-foot {
+    padding: 12px;
+    background-color: rgba(96, 182, 37, 255);
+  }
+
+  .tran-foot a {
+    border: 2px solid white;
+    padding: 5px 10px;
+    color: white;
+  }
 }

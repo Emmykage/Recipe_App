@@ -1,0 +1,29 @@
+<div class="form-layout">
+<%= form_with(url: group_purchases_path, model: @purchase, method: :post, local: true, scope: :purchase) do |form| %>
+  <% if purchase.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(purchase.errors.count, "error") %> prohibited this purchase from being saved:</h2>
+
+      <ul>
+        <% purchase.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name,  class: "input-field" %>
+  </div>
+
+  <div>
+    <%= form.label :amount, style: "display: block" %>
+    <%= form.number_field :amount, step: 1, placeholder: "amount", required: true, class: "input-field" %>
+  </div>
+
+ <div>
+    <%= form.submit class: 'btn' %>
+  </div>
+<% end %>
+</div>
